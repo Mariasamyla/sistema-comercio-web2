@@ -2,7 +2,7 @@
 <html lang="pt-br" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Produtos</title>
+    <title>Produtos Cadastrados</title>
 </head>
 <body>
 
@@ -11,17 +11,21 @@
 <a th:href="@{/produtos/novo}">Cadastrar novo produto</a>
 <br><br>
 
-<table border="1">
+<table border="1" th:if="${not #lists.isEmpty(produtos)}">
     <thead>
     <tr>
         <th>ID</th>
         <th>Nome</th>
+        <th>Preço</th>
+        <th>Quantidade</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="produto : ${produtos}">
         <td th:text="${produto.id}"></td>
         <td th:text="${produto.nome}"></td>
+        <td th:text="${produto.preco}"></td>
+        <td th:text="${produto.quantidade}"></td>
     </tr>
     </tbody>
 </table>
